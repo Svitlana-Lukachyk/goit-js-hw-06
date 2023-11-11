@@ -2,17 +2,13 @@ const textInput = document.querySelector('input#name-input');
 const textOutput = document.querySelector('span#name-output');
 
 textInput.addEventListener('input', onTextInputEvent);
+// let textOutput.textContent = 'Anonymous';
 
 function onTextInputEvent(event) {
-    textOutput.textContent = event.currentTarget.value;
-};
 
-// Варіант 2
-// function onTextInputEvent() {
-//     textOutput.textContent = textInput.value;
-// };
-
-// Варіант 3
-// textInput.addEventListener('input', (event) => {
-//   textOutput.textContent = event.currentTarget.value;
-// });
+    if (event.currentTarget.value.trim() !== '') {
+        textOutput.textContent = event.currentTarget.value.trim();
+    } else {
+        textOutput.textContent = 'Anonymous';
+    }
+    };
